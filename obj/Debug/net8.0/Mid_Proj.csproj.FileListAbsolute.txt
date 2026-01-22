@@ -1,0 +1,14 @@
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/bin/Debug/net8.0/Mid_Proj
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/bin/Debug/net8.0/Mid_Proj.deps.json
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/bin/Debug/net8.0/Mid_Proj.runtimeconfig.json
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/bin/Debug/net8.0/Mid_Proj.dll
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/bin/Debug/net8.0/Mid_Proj.pdb
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.GeneratedMSBuildEditorConfig.editorconfig
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.AssemblyInfoInputs.cache
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.AssemblyInfo.cs
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.csproj.CoreCompileInputs.cache
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.dll
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/refint/Mid_Proj.dll
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.pdb
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.genruntimeconfig.cache
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/ref/Mid_Proj.dll

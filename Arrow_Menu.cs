@@ -1,0 +1,50 @@
+public static class Arrow_Menu
+{
+    public static int arrow_meth(string[] options, string title)
+    {
+        int menu_index = 0;
+        ConsoleKey keyPressed;
+
+        while(true)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{title}");
+            Console.ResetColor();
+
+            for (int i = 0; i < options.Length; i++)
+            {
+                if (i == menu_index)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine($"> {options[i]}");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.WriteLine($" {options[i]}");
+                }
+            }
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            keyPressed = keyInfo.Key;
+
+            if (keyPressed == ConsoleKey.UpArrow && menu_index > 0)
+            {
+                menu_index--;
+
+            }
+            else if (keyPressed == ConsoleKey.DownArrow && menu_index < options.Length - 1)
+            {
+                menu_index++;
+
+            }
+            else if (keyPressed == ConsoleKey.Enter)
+            {
+                return menu_index;
+            }
+        }
+
+
+    }
+}
