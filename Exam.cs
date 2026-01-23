@@ -25,6 +25,6 @@ public class Exam
 
     public void Remove_Question(int index)
     {
-        
+        Questions_Of_Exam.Remove.at(index)
     }
 }
