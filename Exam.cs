@@ -25,11 +25,20 @@ public class Exam
 
     public void Remove_Question(int index)
     {
-            Questions_Of_Exam.Remove.at(index)
+            Questions_Of_Exam.Remove.at(index);
+//reclac
     
     }
     public void Edit_Question(index)
     {
-    Questions_Of_Exam
+    Question q=Questions_Of_Exam[index];
+    string title ="what to edit";
+    string[] options=
+    [
+    "Title",
+    "Question text",
+    "Answer",
+    "Mark",
+    ];
     }
 }
