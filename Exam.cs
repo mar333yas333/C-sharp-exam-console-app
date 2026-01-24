@@ -34,11 +34,13 @@ public class Exam
     Question q=Questions_Of_Exam[index];
     string title ="what to edit";
     string[] options=
-    [
+    {
     "Title",
     "Question text",
     "Answer",
     "Mark",
-    ];
+    };
+    int choice=(title,options);
+    if(choice==0){q.Title=Question.Edit_Title()}
     }
 }
