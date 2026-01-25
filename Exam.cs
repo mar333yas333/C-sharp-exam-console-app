@@ -60,7 +60,7 @@ public class Exam
         }
         else if(choice==2)
         {
-
+            q.Answer=Question.Edit_Answer(q.Answer);
         }
         else if(choice==3)
         {

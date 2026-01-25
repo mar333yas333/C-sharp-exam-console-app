@@ -12,3 +12,4 @@
 /home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.pdb
 /home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.genruntimeconfig.cache
 /home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/ref/Mid_Proj.dll
+/home/marwan/Documents/C Sharp/IEEE/Projects/Mid_Proj/obj/Debug/net8.0/Mid_Proj.sourcelink.json

@@ -35,6 +35,13 @@ public class Question
             return question_text;
         }
     }
+
+    Public Answer Edit_Answer(Answer a)
+    {
+        Arrow_Menu.Title_Me("Editing answer of the question",8);
+        Answer.Edit_All_Choices(a)
+    }
+
     Public double Edit_Fmark(double fmark)
     {
         while(true)
