@@ -17,6 +17,15 @@ public class Exam
 
     }
 
+    public recalculate_T_M()
+    {
+        Total_Mark=0;
+        foreach (Question q in Questions_Of_Exam)
+        {
+            Total_Mark+=q.Fmark
+        }
+    }
+
     public void Add_Question(Question q)
     {
         questions.Add(q);
@@ -25,22 +34,38 @@ public class Exam
 
     public void Remove_Question(int index)
     {
-            Questions_Of_Exam.Remove.at(index);
-//reclac
+        Questions_Of_Exam.Remove.at(index);
+        recalculate_T_M();
     
     }
     public void Edit_Question(index)
     {
-    Question q=Questions_Of_Exam[index];
-    string title ="what to edit";
-    string[] options=
-    {
-    "Title",
-    "Question text",
-    "Answer",
-    "Mark",
-    };
-    int choice=(title,options);
-    if(choice==0){q.Title=Question.Edit_Title()}
+        Question q=Questions_Of_Exam[index];
+        string title ="what to edit";
+        string[] options=
+        {
+            "Title",
+            "Question text",
+            "Answer",
+            "Mark",
+        };
+        int choice=(title,options);
+        if(choice==0)
+        {
+            q.Title=Question.Edit_Title(q.Title);
+        }
+        else if(choice==1)
+        {
+            q.Question_Text=Question.Edit_Question_Text(q.question_text);
+        }
+        else if(choice==2)
+        {
+
+        }
+        else if(choice==3)
+        {
+            q.Fmark=Edit_Fmark(q.Fmark);
+            recalculate_T_M();
+        }
     }
 }

@@ -1,6 +1,5 @@
-public static class Arrow_Menu
-{
-    public static int arrow_meth(string[] options, string title)
+public static class Arrow_Menu{
+    public static int arrow_meth(string[] options, string title,int width)
     {
         int menu_index = 0;
         ConsoleKey keyPressed;
@@ -9,7 +8,7 @@ public static class Arrow_Menu
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{title}");
+            Title_Me(title,width);
             Console.ResetColor();
 
             for (int i = 0; i < options.Length; i++)
@@ -46,5 +45,15 @@ public static class Arrow_Menu
         }
 
 
+    }
+    public static void Title_Me(string title , int width)
+    {
+        Console.ForegroundColor=ConsoleColor.Green;
+        Console.Write(new string("─",width));
+        Console.ForegroundColor=ConsoleColor.White;
+        Console.Write(title);
+        Console.ForegroundColor=ConsoleColor.Green;
+        Console.Write(new string("─",width));
+        Console.ForegroundColor=ConsoleColor.White;
     }
 }
