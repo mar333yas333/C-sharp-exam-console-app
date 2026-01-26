@@ -1,6 +1,6 @@
 public class Input_Handler
 {
-    static string Read_Non_Empty_String(string prompt)
+    public static string Read_Non_Empty_String(string prompt)
     {
         while (true)
         {
@@ -10,11 +10,11 @@ public class Input_Handler
             if (!string.IsNullOrWhiteSpace(input))
                 return input;
 
-            PrintError("Input cannot be empty");
+            Print_Error("Input cannot be empty");
         }
     }
 
-    static double Read_Double(string prompt)
+    public static double Read_Double(string prompt)
     {
         while (true)
         {
@@ -24,12 +24,12 @@ public class Input_Handler
             if (double.TryParse(input, out double value))
                 return value;
 
-            PrintError("Please enter a valid number (decimal allowed)");
+            Print_Error("Please enter a valid number (decimal allowed)");
         }
     }
 
 
-    static int Read_Int_In_Range(string prompt, int min, int max)
+    public static int Read_Int_In_Range(string prompt, int min, int max)
     {
         while (true)
         {
@@ -38,10 +38,10 @@ public class Input_Handler
             if (value >= min && value <= max)
                 return value;
 
-            PrintError($"Enter a number between {min} and {max}");
+            Print_Error($"Enter a number between {min} and {max}");
         }
     }
-    static void Print_Error(string message)
+    public static void Print_Error(string message)
     {
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(message);

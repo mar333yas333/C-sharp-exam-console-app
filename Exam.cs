@@ -17,28 +17,28 @@ public class Exam
 
     }
 
-    public recalculate_T_M()
+    public void recalculate_T_M(Exam e)
     {
-        Total_Mark=0;
+        e.Total_Mark=0;
         foreach (Question q in Questions_Of_Exam)
         {
-            Total_Mark+=q.Fmark
+            e.Total_Mark+=q.Fmark;
         }
     }
 
     public void Add_Question(Question q)
     {
-        questions.Add(q);
+        Questions_Of_Exam.Add(q);
         Total_Mark += q.Fmark;
     }
 
-    public void Remove_Question(int index)
+    public void Remove_Question(int index,Exam e)
     {
-        Questions_Of_Exam.Remove.at(index);
-        recalculate_T_M();
+        e.Questions_Of_Exam.RemoveAt(index);
+        recalculate_T_M(e);
     
     }
-    public void Edit_Question(index)
+    public void Edit_Question(int index,Exam e)
     {
         Question q=Questions_Of_Exam[index];
         string title ="what to edit";
@@ -49,23 +49,23 @@ public class Exam
             "Answer",
             "Mark",
         };
-        int choice=(title,options);
+        int choice=Arrow_Menu.arrow_meth(title,options,8);
         if(choice==0)
         {
             q.Title=Question.Edit_Title(q.Title);
         }
         else if(choice==1)
         {
-            q.Question_Text=Question.Edit_Question_Text(q.question_text);
+            q.Question_Text=Question.Edit_Question_Text(q.Question_Text);
         }
         else if(choice==2)
         {
-            q.Answer=Question.Edit_Answer(q.Answer);
+            Question.Edit_Answer(q.Answer);
         }
         else if(choice==3)
         {
-            q.Fmark=Edit_Fmark(q.Fmark);
-            recalculate_T_M();
+            q.Fmark=Question.Edit_Fmark(q.Fmark);
+            recalculate_T_M(e);
         }
     }
 }
