@@ -10,5 +10,8 @@ class Subject
         id= ++ids;
         Subject_Name= subject_name;
     }
-    public 
+    public void Add_Exam()
+    {
+    
+    }
 }
