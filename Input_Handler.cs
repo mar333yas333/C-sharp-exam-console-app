@@ -5,7 +5,7 @@ public class Input_Handler
         while (true)
         {
             Console.Write(prompt);
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(input))
                 return input;
@@ -19,15 +19,28 @@ public class Input_Handler
         while (true)
         {
             Console.Write(prompt);
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
-            if (double.TryParse(input, out double value))
+            if (double.TryParse(input, out double value) && !string.IsNullOrWhiteSpace(input))
                 return value;
 
             Print_Error("Please enter a valid number (decimal allowed)");
         }
     }
 
+    public static int ReadInt(string prompt)
+    {
+        while (true)
+        {
+            Console.Write(prompt);
+            string? input = Console.ReadLine();
+
+            if (int.TryParse(input, out int value))
+                return value;
+
+            Print_Error("Please enter a valid integer");
+        }
+    }
 
     public static int Read_Int_In_Range(string prompt, int min, int max)
     {
