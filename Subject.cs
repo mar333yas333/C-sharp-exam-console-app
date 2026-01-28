@@ -12,6 +12,10 @@ class Subject
     }
     public void Add_Exam()
     {
-        int choice = 
+        string title = "making Exam";
+        string [] options={
+            "Exam 
+        }
+        int choice = Arrow_Menu.arrow_meth(title,);
     }
 }
