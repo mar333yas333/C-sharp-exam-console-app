@@ -1,5 +1,6 @@
 class Subject
 {
+    public static List<Subject> Subjects = new List<Subject>();
     public static int ids = 0;
     public int Id;
     public string Subject_Name;
@@ -9,6 +10,7 @@ class Subject
     {
         id= ++ids;
         Subject_Name= subject_name;
+        Subjects.Add(this);
     }
     public void Add_Exam()
     {

@@ -18,4 +18,18 @@ public class User
 
         Users.Add(this);
     }
+    public string Field_Email()
+    {
+        string prompt_email = "Enter Email : ";
+        string email=Input_Handler(prompt_email);
+    }
+    public string Field_Password()
+    {
+        string prompt_email = "Enter Password : ";
+        string password=Input_Handler(prompt_password);
+    }
+    public bool User_Auth(string email,string password)
+    {
+
+    }
 }

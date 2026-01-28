@@ -9,16 +9,15 @@ class View
     }
     public static void User_Login(){
         string title =Arrow_Menu.Title_Me("Log in",7);
-        string prompt_email = "Enter Email : ";
-        string prompt_email = "Enter Password : ";
-        string email=Input_Handler(prompt_email);
-        string password=Input_Handler(prompt_password);
+        string Email = Field_Email();
+        string Password=Field_Password();
+        bool usure = AUS_User();
+        bool logged= User.User_Auth(Email,Password)
     }
     public static void User_Signup(){
     
     }
-    public static void AUS_User(string email,string password)
-    {
-        
+    public static void AUS_User(string email,string password){
+    
     }
 }
