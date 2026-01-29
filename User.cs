@@ -1,6 +1,7 @@
 public class User
 {
-    static int ids=0;
+    public static int current_User_Index;
+    static public int ids=0;
     public static List<User> Users = new List<User>();
     public List<string> history = new List<string>();
     public int id;

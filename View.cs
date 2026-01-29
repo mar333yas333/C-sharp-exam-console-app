@@ -18,6 +18,12 @@ class View
     
     }
     public static void AUS_User(string email,string password){
-    
+        if(!Users.Any(u => u.Email == email &&u.Password == password))
+        {
+            System.Console.WriteLine("invalid login information ... \n please,try again");
+        }
+        else {
+            User.current_User_Index=;
+        }
     }
 }
