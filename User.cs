@@ -9,13 +9,13 @@ public class User
     public string Password;
     public string Type;
     public int Year;
-    public User(string email,string password,string type,int year)
+    public User(string email,string password,string type)
     {
         id = ++ids;
         Email = email;
         Password = password;
         Type = type;
-        Year = year;
+        
 
         Users.Add(this);
     }
@@ -31,6 +31,25 @@ public class User
         string password=Input_Handler.Read_Non_Empty_String(prompt_password);
         return password;
     }
+    public static string Field_Type()
+    {
+        string title ="Choose account type";
+        string [] options=[
+            "student",
+            "professor",
+        ];
+        int choice =Arrow_Menu.arrow_meth(title,options,7);
+        switch(choice)
+        {
+            case 0:
+                return options[0];
+            case 1:
+                return options[1];
+            default:
+                throw new InvalidOperationException("Invalid account type selection.");
+
+        }
+    }
     public static bool User_Auth_Log(string email,string password)
     {
         if(!Users.Any(u => u.Email == email &&u.Password == password)){
@@ -42,12 +61,13 @@ public class User
             return true;
         }
     }
-    public static bool User_Auth_Sign(string email,string type){
+    public static bool User_Auth_Sign(string email,string password,string type){
         if(Users.Any(u => u.Email == email)){
             System.Console.WriteLine("email already taken please try another ...");
             return false;
         }
         else{
+            User user = new User(email, password, type);
             User.current_User_Index=Users.FindIndex(u => u.Email == email);
             return true;
         }
