@@ -6,18 +6,18 @@ class Subject
     public string Subject_Name;
     List <Exam> Subject_Exam = new List <Exam>();
 
-    public void Subject(subject_name)
+    public Subject(string subject_name)
     {
-        id= ++ids;
+        Id= ++ids;
         Subject_Name= subject_name;
         Subjects.Add(this);
     }
     public void Add_Exam()
     {
         string title = "making Exam";
-        string [] options={
-            "Exam 
-        }
-        int choice = Arrow_Menu.arrow_meth(title,);
+        string [] options=[
+            "Exam"
+        ];
+        int choice = Arrow_Menu.arrow_meth(title,options,7);
     }
 }

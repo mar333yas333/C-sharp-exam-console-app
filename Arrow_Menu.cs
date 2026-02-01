@@ -53,7 +53,7 @@ public static class Arrow_Menu{
         Console.ForegroundColor=ConsoleColor.White;
         Console.Write(title);
         Console.ForegroundColor=ConsoleColor.Green;
-        Console.Write(new string('─',width));
+        Console.WriteLine(new string('─',width));
         Console.ForegroundColor=ConsoleColor.White;
     }
 }

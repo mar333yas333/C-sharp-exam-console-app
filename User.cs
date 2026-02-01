@@ -5,32 +5,51 @@ public class User
     public static List<User> Users = new List<User>();
     public List<string> history = new List<string>();
     public int id;
-    public string Username;
+    public string Email;
     public string Password;
     public string Type;
     public int Year;
-    public User(string username,string password,string type,int year)
+    public User(string email,string password,string type,int year)
     {
         id = ++ids;
-        Username = username;
+        Email = email;
         Password = password;
         Type = type;
         Year = year;
 
         Users.Add(this);
     }
-    public string Field_Email()
+    public static string Field_Email()
     {
         string prompt_email = "Enter Email : ";
-        string email=Input_Handler(prompt_email);
+        string email=Input_Handler.Read_Non_Empty_String(prompt_email);
+        return email;
     }
-    public string Field_Password()
+    public static string Field_Password()
     {
-        string prompt_email = "Enter Password : ";
-        string password=Input_Handler(prompt_password);
+        string prompt_password = "Enter Password : ";
+        string password=Input_Handler.Read_Non_Empty_String(prompt_password);
+        return password;
     }
-    public bool User_Auth(string email,string password)
+    public static bool User_Auth_Log(string email,string password)
     {
-
+        if(!Users.Any(u => u.Email == email &&u.Password == password)){
+            System.Console.WriteLine("invalid login information ... \n please,try again");
+            return false;
+        }
+        else {
+            User.current_User_Index=Users.FindIndex(u => u.Email ==email);
+            return true;
+        }
+    }
+    public static bool User_Auth_Sign(string email,string type){
+        if(Users.Any(u => u.Email == email)){
+            System.Console.WriteLine("email already taken please try another ...");
+            return false;
+        }
+        else{
+            User.current_User_Index=Users.FindIndex(u => u.Email == email);
+            return true;
+        }
     }
 }
