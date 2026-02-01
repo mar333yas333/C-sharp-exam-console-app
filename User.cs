@@ -73,4 +73,7 @@ public class User
             return true;
         }
     }
+    public static void Set_Current_User(){
+        Current_User=Users.[current_User_Index];
+    }
 }
