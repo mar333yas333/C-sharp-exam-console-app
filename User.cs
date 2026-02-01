@@ -1,6 +1,7 @@
 public class User
 {
-    public static int current_User_Index;
+    public static int current_User_Index=-1;
+    public static User Current_User;
     static public int ids=0;
     public static List<User> Users = new List<User>();
     public List<string> history = new List<string>();
@@ -36,7 +37,7 @@ public class User
         string title ="Choose account type";
         string [] options=[
             "student",
-            "professor",
+            "proffesor",
         ];
         int choice =Arrow_Menu.arrow_meth(title,options,7);
         switch(choice)
