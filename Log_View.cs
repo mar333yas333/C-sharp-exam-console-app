@@ -25,6 +25,7 @@ class Log_Views
             string Password=User.Field_Password();
             AUS_User_Log(ref Email,ref Password);
             logged= User.User_Auth_Log(Email,Password);
+            Set_Current_User();
         }
     }
 
@@ -38,7 +39,7 @@ class Log_Views
             string Type = User.Field_Type();
             AUS_User_Sign(ref Email,ref Password,ref Type);
             signed= User.User_Auth_Sign(Email,Password,Type);
-            
+            Set_Current_User();
         }
     }
     public static void AUS_User_Sign(ref string email,ref string password,ref string type){
