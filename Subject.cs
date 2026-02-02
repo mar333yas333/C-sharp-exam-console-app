@@ -41,10 +41,10 @@ class Subject{
     public static void Show_Subject_Exams(int index){
     title="Exams avaliable";
     string[Subjects[index].Subject_Exam.Count()] options=
-        string[] options=new string[Subjects.Count+1];
-        foreach(Subject S in Subjects)
+        string[] options=new string[Subjects[index].Subject_Exam.Count()+1];
+        foreach(Subject E in Subjects[index].Subject_Exam.Count())
         {
-            options[i]=S.Subject_Name;
+            options[i]=E.Exam_Name;
             i++;
         }
         i=0;
