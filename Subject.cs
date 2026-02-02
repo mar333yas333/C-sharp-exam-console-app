@@ -35,7 +35,18 @@ class Subject{
             Student_Views.Main_Menu();
         }
         else{
-            
+            Show_Subject_Exams(choice);
         }
+    }
+    public static void Show_Subject_Exams(int index){
+    title="Exams avaliable";
+    string[Subjects[index].Subject_Exam.Count()] options=
+        string[] options=new string[Subjects.Count+1];
+        foreach(Subject S in Subjects)
+        {
+            options[i]=S.Subject_Name;
+            i++;
+        }
+        i=0;
     }
 }
