@@ -1,5 +1,4 @@
-class Log_Views
-{
+class Log_Views{
     public static void Home_Page(){
         string title = "CIS.edu";
         string [] options =[
@@ -26,13 +25,13 @@ class Log_Views
             AUS_User_Log(ref Email,ref Password);
             logged= User.User_Auth_Log(Email,Password);
             User.Set_Current_User();
+            Open_My_Acc();
         }
     }
 
     public static void User_Signup(){
         bool signed =false;
-        while(!signed)
-        {
+        while(!signed){
             Arrow_Menu.Title_Me("Log in",7);
             string Email = User.Field_Email();
             string Password=User.Field_Password();
@@ -40,6 +39,7 @@ class Log_Views
             AUS_User_Sign(ref Email,ref Password,ref Type);
             signed= User.User_Auth_Sign(Email,Password,Type);
             User.Set_Current_User();
+            Open_My_Acc();
         }
     }
     public static void AUS_User_Sign(ref string email,ref string password,ref string type){
@@ -67,6 +67,7 @@ class Log_Views
                     type = User.Field_Type();
                     break;
                 case 3:
+                    
                     return;
                 case 4:
                     Log_Views.Home_Page();
@@ -95,11 +96,19 @@ class Log_Views
                     password=User.Field_Password();
                     break;
                 case 2:
+
                     return;
                 case 3:
                     Log_Views.Home_Page();
                     break;
             }
+        }
+    }
+    public static void Open_My_Acc(){
+        if(User.Current_User.Type=="proffesor"){
+            Using_Views.P_view();
+        }else if(User.Current_User.Type=="student"){
+            Using_Views.S_view();
         }
     }
 }

@@ -1,5 +1,4 @@
-public class User
-{
+public class User{
     public static int current_User_Index=-1;
     public static User Current_User;
     static public int ids=0;
@@ -10,8 +9,7 @@ public class User
     public string Password;
     public string Type;
     public int Year;
-    public User(string email,string password,string type)
-    {
+    public User(string email,string password,string type){
         id = ++ids;
         Email = email;
         Password = password;
@@ -20,20 +18,17 @@ public class User
 
         Users.Add(this);
     }
-    public static string Field_Email()
-    {
+    public static string Field_Email(){
         string prompt_email = "Enter Email : ";
         string email=Input_Handler.Read_Non_Empty_String(prompt_email);
         return email;
     }
-    public static string Field_Password()
-    {
+    public static string Field_Password(){
         string prompt_password = "Enter Password : ";
         string password=Input_Handler.Read_Non_Empty_String(prompt_password);
         return password;
     }
-    public static string Field_Type()
-    {
+    public static string Field_Type(){
         string title ="Choose account type";
         string [] options=[
             "student",
@@ -74,6 +69,6 @@ public class User
         }
     }
     public static void Set_Current_User(){
-        Current_User=Users.[current_User_Index];
+        Current_User=Users[current_User_Index];
     }
 }
