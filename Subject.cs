@@ -30,9 +30,12 @@ class Subject{
         options[Subject.Subjects.Count]="Back";
         int choice = Arrow_Menu.arrow_meth(title,options,7);
         
-        if (choice==Subject.Subjects.Count-1)
+        if (choice==Subject.Subjects.Count)
         {
-            Using_Views.S_view();
+            Student_Views.Main_Menu();
+        }
+        else{
+            
         }
     }
 }

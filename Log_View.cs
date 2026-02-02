@@ -106,9 +106,9 @@ class Log_Views{
     }
     public static void Open_My_Acc(){
         if(User.Current_User.Type=="proffesor"){
-            Using_Views.P_view();
+            Proffesor_Views.Main_Menu();
         }else if(User.Current_User.Type=="student"){
-            Using_Views.S_view();
+            Student_Views.Main_Menu();
         }
     }
 }

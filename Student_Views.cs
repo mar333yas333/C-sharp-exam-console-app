@@ -1,10 +1,9 @@
-class Using_Views
+class Student_Views
 {
-    public static void S_view(){
+    public static void Main_Menu(){
         string title = $"welcome student {User.Current_User.Email}";
         string [] options=[
             "my subjects",
-            "my exam",
             "history",
             "my info",
             "log out"
@@ -16,7 +15,5 @@ class Using_Views
                 break;
         }
     }
-    public static void P_view(){
-        
-    }
+
 }
