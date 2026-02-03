@@ -5,6 +5,7 @@ public class Exam
     public int Subject_id;
     public string Subject_name;
     public string Exam_type;
+    public string Exam_Year;
     public string Exam_Name;
     public double Total_Mark=0;
     public List<Question> Questions_Of_Exam = new List<Question>();
