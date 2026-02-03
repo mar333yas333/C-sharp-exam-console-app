@@ -39,14 +39,23 @@ class Subject{
         }
     }
     public static void Show_Subject_Exams(int index){
-    title="Exams avaliable";
-    string[Subjects[index].Subject_Exam.Count()] options=
+        string title="Exams avaliable";
         string[] options=new string[Subjects[index].Subject_Exam.Count()+1];
-        foreach(Subject E in Subjects[index].Subject_Exam.Count())
+        options[Subjects[index].Subject_Exam.Count()]="Back";
+        int i=0;
+        foreach(Exam E in Subjects[index].Subject_Exam)
         {
             options[i]=E.Exam_Name;
             i++;
         }
         i=0;
+        int choice=Arrow_Menu.arrow_meth(title,options,8);
+        if (choice== Subjects[index].Subject_Exam.Count()){
+            Subject.Show_My_Subjects();
+        }
+        else{
+            Exam.Attend_Exam(choice);
+        }
     }
+
 }

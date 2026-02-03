@@ -5,16 +5,17 @@ public class Exam
     public int Subject_id;
     public string Subject_name;
     public string Exam_type;
+    public string Exam_Name;
     public double Total_Mark=0;
     public List<Question> Questions_Of_Exam = new List<Question>();
     
-    public Exam(int subject_id, string subject_name, string exam_type)
+    public Exam(int subject_id, string subject_name,string exam_name, string exam_type)
     {
         id = ++ids;
         Subject_id = subject_id;
         Subject_name = subject_name;
+        Exam_Name = exam_name;
         Exam_type = exam_type;
-
     }
 
     public void recalculate_T_M(Exam e)
@@ -67,5 +68,8 @@ public class Exam
             q.Fmark=Question.Edit_Fmark(q.Fmark);
             recalculate_T_M(e);
         }
+    }
+    public static void Attend_Exam(int index){
+        
     }
 }
