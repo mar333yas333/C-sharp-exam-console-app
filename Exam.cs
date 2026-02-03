@@ -7,10 +7,11 @@ public class Exam
     public string Exam_type;
     public string Exam_Year;
     public string Exam_Name;
+    public string Exam_Author;
     public double Total_Mark=0;
     public List<Question> Questions_Of_Exam = new List<Question>();
     
-    public Exam(int subject_id, string subject_name,string exam_name, string exam_type)
+    public static void Make_Exam(int subject_id, string subject_name, string exam_type,string exam_year,string exam_name,string exam_author)
     {
         id = ++ids;
         Subject_id = subject_id;
