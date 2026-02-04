@@ -54,13 +54,16 @@ class Subject{
             Subject.Show_My_Subjects();
         }
         else{
-            Exam.Attend_Exam(choice);
+            if(Current_User.Type=="student"){
+                Exam.Attend_Exam(Subjects[index].Subject_Exam[choice]);
+            }
         }
     }
     public static void Proffesor_Show_Subject_Exams(int index){
         string title="Exams avaliable";
-        string[] options=new string[Subjects[index].Subject_Exam.Count()+1];
-        options[Subjects[index].Subject_Exam.Count()]="Back";
+        string[] options=new string[Subjects[index].Subject_Exam.Count()+2];
+        options[Subjects[index].Subject_Exam.Count()]="Add Exam";
+        options[Subjects[index].Subject_Exam.Count()+1]="Back";
         int i=0;
         foreach(Exam E in Subjects[index].Subject_Exam)
         {
@@ -69,11 +72,14 @@ class Subject{
         }
         i=0;
         int choice=Arrow_Menu.arrow_meth(title,options,8);
-        if (choice== Subjects[index].Subject_Exam.Count()){
+        if (choice== Subjects[index].Subject_Exam.Count()+1){
             Subject.Show_My_Subjects();
         }
+        else if (choice== Subjects[index].Subject_Exam.Count()){
+            Exam.Make_Exam();
+        }
         else{
-            Exam.Edit_Exam(choice);
+            Exam.Edit_Exam(Subjects[index].Subject_Exam[choice]);
         }
     }
 }

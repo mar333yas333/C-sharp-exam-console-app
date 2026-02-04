@@ -11,13 +11,16 @@ public class Exam
     public double Total_Mark=0;
     public List<Question> Questions_Of_Exam = new List<Question>();
     
-    public static void Make_Exam(int subject_id, string subject_name, string exam_type,string exam_year,string exam_name,string exam_author)
+    public static void Make_Exam(int index,int subject_id, string subject_name, string exam_type,string exam_year,string exam_name,string exam_author)
     {
-        id = ++ids;
-        Subject_id = subject_id;
-        Subject_name = subject_name;
-        Exam_Name = exam_name;
-        Exam_type = exam_type;
+        
+        e.id = ++ids;
+        e.Subject_id = subject_id;
+        e.Subject_Name = subject_name;
+        e.Exam_type = exam_type;
+        e.Exam_Year =exam_year;
+        e.Exam_Name = exam_name;
+        e.Exam_Author = exam_author;
     }
 
     public void recalculate_T_M(Exam e)

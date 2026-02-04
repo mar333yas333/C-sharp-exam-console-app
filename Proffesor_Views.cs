@@ -10,15 +10,9 @@ class Proffesor_Views{
             case 0:
                 Subject.Show_My_Subjects();
                 break;
-/*          case 1:
-                Student_Views.Show_History();
+            case 1:
+                Log_Views.Home_Page();
                 break;
-            case 2:
-                Student_Show_Current_Degree();
-                break;
-            case 3:
-                User.Log_Out();
-                break;*/
         }
     }
     

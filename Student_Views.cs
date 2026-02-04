@@ -18,10 +18,10 @@ class Student_Views
                 break;
             case 2:
                 Student_Show_Current_Degree();
-                break;
-            case 3:
-                User.Log_Out();
                 break;*/
+            case 3:
+                Log_Views.Home_Page();
+                break;
         }
     }
 
