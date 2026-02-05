@@ -5,7 +5,7 @@ class Student_Views
         string [] options=[
             "my subjects",
             "history",
-            "my info",
+            
             "log out"
         ];
         int choice = Arrow_Menu.arrow_meth(title,options,5);
@@ -16,10 +16,8 @@ class Student_Views
 /*          case 1:
                 Student_Views.Show_History();
                 break;
+            */
             case 2:
-                Student_Show_Current_Degree();
-                break;*/
-            case 3:
                 Log_Views.Home_Page();
                 break;
         }
