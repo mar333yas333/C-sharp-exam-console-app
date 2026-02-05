@@ -32,17 +32,18 @@ class Log_Views{
     public static void User_Signup(){
         bool signed =false;
         while(!signed){
-            Arrow_Menu.Title_Me("Log in",7);
+            Arrow_Menu.Title_Me("Sign UP",7);
             string Email = User.Field_Email();
             string Password=User.Field_Password();
             string Type = User.Field_Type();
-            AUS_User_Sign(ref Email,ref Password,ref Type);
-            signed= User.User_Auth_Sign(Email,Password,Type);
+            signed=AUS_User_Sign(ref Email,ref Password,ref Type);
+            //signed= User.User_Auth_Sign(Email,Password,Type);
+            Thread.Sleep(1000);
             User.Set_Current_User();
             Open_My_Acc();
         }
     }
-    public static void AUS_User_Sign(ref string email,ref string password,ref string type){
+    public static bool AUS_User_Sign(ref string email,ref string password,ref string type){
         bool loop = true;
         string title = "Do you want to change any of the user information?";
         string [] options=[
@@ -74,6 +75,7 @@ class Log_Views{
                     break;
             }
         }
+        return true;
     }
     public static void AUS_User_Log(ref string email,ref string password){
         bool loop = true;
