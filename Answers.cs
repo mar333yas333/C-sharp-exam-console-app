@@ -5,11 +5,10 @@ public class Answer
     string Correct_Answer;
     string[] All_Choices;
     
-    public Answer(string correct_answer,string[] all_choices)
+    public Answer(int length)
     {
         id = ++ids;
-        Correct_Answer = correct_answer;
-        All_Choices = (string[])all_choices.Clone();
+        All_Choices = new string[length];
     }
     public static void Edit_All_Choices(Answer a)
     {   

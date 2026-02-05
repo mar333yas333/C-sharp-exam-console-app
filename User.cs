@@ -49,7 +49,8 @@ public class User{
     public static bool User_Auth_Log(string email,string password)
     {
         if(!Users.Any(u => u.Email == email &&u.Password == password)){
-            System.Console.WriteLine("invalid login information ... \n please,try again");
+            Input_Handler.Print_Error("invalid login information ... \n please,try again");
+            Thread.Sleep(2000);      
             return false;
         }
         else {
@@ -59,7 +60,8 @@ public class User{
     }
     public static bool User_Auth_Sign(string email,string password,string type){
         if(Users.Any(u => u.Email == email)){
-            System.Console.WriteLine("email already taken please try another ...");
+            Input_Handler.Print_Error("email already taken please try another ...");
+            Thread.Sleep(2000);
             return false;
         }
         else{

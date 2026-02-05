@@ -67,8 +67,8 @@ class Log_Views{
                     type = User.Field_Type();
                     break;
                 case 3:
-                    
-                    return;
+                    loop=!(User.User_Auth_Sign(email,password,type));
+                    break;
                 case 4:
                     Log_Views.Home_Page();
                     break;
@@ -95,9 +95,9 @@ class Log_Views{
                 case 1:
                     password=User.Field_Password();
                     break;
-                case 2:
-
-                    return;
+                case 2:                    
+                    loop=!(User.User_Auth_Log(email,password));
+                    break;
                 case 3:
                     Log_Views.Home_Page();
                     break;
