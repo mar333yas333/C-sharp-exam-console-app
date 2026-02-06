@@ -13,14 +13,31 @@ class Student_Views
             case 0:
                 Subject.Show_My_Subjects();
                 break;
-/*          case 1:
+            case 1:
                 Student_Views.Show_History();
                 break;
-            */
+            
             case 2:
                 Log_Views.Home_Page();
                 break;
         }
+    }
+    public static void Show_History(){
+        Console.Clear();
+        Arrow_Menu.Title_Me("Exam History",6);
+
+        if(User.Current_User.history.Count == 0){
+            Console.WriteLine("No exams attended yet.");
+        }
+        else{
+            for(int i = 0; i < User.Current_User.history.Count; i++){
+                Console.WriteLine($"{i + 1}. {User.Current_User.history[i]}");
+            }
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Press any key to go back...");
+        Console.ReadKey();
     }
 
 }

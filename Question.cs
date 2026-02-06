@@ -21,7 +21,7 @@ public class Question
     {
         
             Arrow_Menu.Title_Me("Editing Title",8);
-            title=Input_Handler.Read_Non_Empty_String($"  Old Title : {title}/n  New Title : ");
+            title=Input_Handler.Read_Non_Empty_String($"  Old Title : {title}\n  New Title : ");
             return title;  
         
     }
@@ -30,7 +30,7 @@ public class Question
         
         
             Arrow_Menu.Title_Me("Edititng Question Text",8);
-            question_text=Input_Handler.Read_Non_Empty_String($"  Old Text : {question_text}/n  New Text : ");
+            question_text=Input_Handler.Read_Non_Empty_String($"  Old Text : {question_text}\n  New Text : ");
             return question_text;
         
     }
@@ -45,7 +45,7 @@ public class Question
     {
         
             Arrow_Menu.Title_Me("Editing Mark of the question",8);
-            fmark=Input_Handler.Read_Double($"  Old Mark : {fmark}/n  New Mark : ");
+            fmark=Input_Handler.Read_Double($"  Old Mark : {fmark}\n  New Mark : ");
             return fmark;
         
     }

@@ -2,8 +2,8 @@ public class Answer
 {
     static int ids =0;
     int id;
-    string Correct_Answer;
-    string[] All_Choices;
+    public string Correct_Answer;
+    public string[] All_Choices;
     
     public Answer(int length)
     {

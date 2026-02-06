@@ -5,10 +5,6 @@ public class Exam{
     public string Exam_Name;
     public string Status_In_String;
     public bool Avaliable;
-//    public int Subject_Id;
-//    public string Subject_Name;
-//    public string Exam_Year;
-//    public string Exam_Author;
     public double Total_Mark=0;
     public List<Question> Questions_Of_Exam = new List<Question>();
     
@@ -30,6 +26,9 @@ public class Exam{
             case 1:
                 exam_type="final";
                 break;
+            case 3:
+                exam_type="custome";
+                break;
         }
 
         Arrow_Menu.Title_Me("Making Exam",7);
@@ -46,10 +45,7 @@ public class Exam{
         e.Exam_Name = exam_name;
         e.Avaliable = avaliable;
         e.Status_In_String = "(Not Avaliable)";
-    //    e.Subject_Id = subject_id;
-    //    e.Subject_Name = subject_name;
-    //    e.Exam_Year =exam_year;
-    //    e.Exam_Author = exam_author;
+
         Subject.Subjects[Subject_index].Subject_Exam.Add(e);
     }
 
@@ -101,15 +97,326 @@ public class Exam{
             recalculate_T_M(e);
         }
     }
-    public static void Attend_Exam(Exam e){
-        
+    /*public static void Attend_Exam(Exam e,int Subject_index){
+        if (e.Questions_Of_Exam.Count == 0){
+            Show_Subject_Exams(Subject_Exam);
+        }
+        int Current_Question=0;
+        int Current_Choice=0;
+
+        int[] User_Answers = new int[e.Questions_Of_Exam.Count];
+        for (int i = 0; i < User_Answers.Length; i++){
+            answers[i] = -1;
+        }
+
+        while(true){
+            Question q = e.Questions_Of_Exam[Current_Question];
+
+            Console.Clear();
+            string title = $"Exam: {e.Exam_Name} | Question {currentQuestion + 1}/{e.Questions_Of_Exam.Count}";
+            Arrow_Menu.Title_Me(title, 6);
+            Console.WriteLine(q.Question_Text);
+            Console.WriteLine();
+
+            for (int i = 0; i < q.Answer.Choices.Length; i++){
+                if (i == currentChoice){
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine($"> {q.Answer.Choices[i]}");
+                    Console.ResetColor();
+                }
+                else{
+                    Console.WriteLine($"  {q.Answer.Choices[i]}");
+                }
+            }
+
+            ConsoleKey key = Console.ReadKey(true).Key;
+
+            if (key == ConsoleKey.UpArrow && currentChoice > 0){
+                currentChoice--;
+            }
+            else if (key == ConsoleKey.DownArrow && currentChoice < q.Answer.Choices.Length - 1){
+                currentChoice++;
+            }
+            else if (key == ConsoleKey.LeftArrow){
+                if (currentQuestion > 0){
+                    currentQuestion--;
+                    currentChoice = answers[currentQuestion] == -1 ? 0 : answers[currentQuestion];
+                }
+            }
+            else if (key == ConsoleKey.Enter){
+                answers[currentQuestion] = currentChoice;
+            }
+            else if (key == ConsoleKey.Escape){
+                Show_Subject_Exams(Subject_index);
+            }
+            bool finished = true;
+            foreach (int a in answers){
+                if (a == -1){
+                    finished = false;
+                    break;
+                }
+            }
+            if (finished){
+                break;
+            }
+
+            double score = 0;
+            for(int i = 0; i < e.Questions_Of_Exam.Count; i++){
+                Question q = e.Questions_Of_Exam[i];
+                if (answers[i] == q.Answer.Correct_Index){
+                    score += q.Fmark;
+                }
+            }
+
+            int correctCount = 0;
+
+            for (int i = 0; i < e.Questions_Of_Exam.Count; i++)
+            {
+                Question q = e.Questions_Of_Exam[i];
+                if (answers[i] == q.Answer.Correct_Index)
+                {
+                    correctCount++;
+                }
+            }
+
+            Arrow_Menu.Title_Me("Exam Result", 6);
+
+            if (e.Exam_Type != "practical")
+            {
+                Console.WriteLine($"Score: {score} / {e.Total_Mark}");
+            }
+
+            Console.WriteLine($"Correct answers: {correctCount} / {e.Questions_Of_Exam.Count}");
+            Console.WriteLine();
+
+            for (int i = 0; i < e.Questions_Of_Exam.Count; i++)
+            {
+                Question q = e.Questions_Of_Exam[i];
+
+                Console.WriteLine($"Q{i + 1}");
+                Console.WriteLine(q.Question_Text);
+
+                for (int j = 0; j < q.Answer.Choices.Length; j++)
+                {
+                    if (j == answers[i])
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"{(char)('a' + j)}. {q.Answer.Choices[j]}");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{(char)('a' + j)}. {q.Answer.Choices[j]}");
+                    }
+                }
+
+                bool correct = answers[i] == q.Answer.Correct_Index;
+
+                if (correct)
+                    Console.ForegroundColor = ConsoleColor.Green;
+                else
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                int c = q.Answer.Correct_Index;
+                Console.WriteLine($"Correct answer: {(char)('a' + c)}. {q.Answer.Choices[c]}");
+                Console.ResetColor();
+
+                Console.WriteLine();
+            }
+
+            string historyEntry;
+
+            if (e.Exam_Type == "practical")
+            {
+                historyEntry = $"Attended Exam {e.Exam_Name}";
+            }
+            else
+            {
+                historyEntry = $"Attended Exam {e.Exam_Name} and got {score}/{e.Total_Mark}";
+            }
+
+            User.Current_User.history.Add(historyEntry);
+            
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+        }
+    }*/
+    public static void Attend_Exam(Exam e,int Subject_index){
+        if (e.Questions_Of_Exam.Count == 0){
+            Subject.Show_Subject_Exams(Subject_index);
+            return;
+        }
+
+        int Current_Question = 0;
+        int Current_Choice = 0;
+
+        int[] User_Answers = new int[e.Questions_Of_Exam.Count];
+        for (int i = 0; i < User_Answers.Length; i++){
+            User_Answers[i] = -1;
+        }
+
+        while(true){
+            Question q = e.Questions_Of_Exam[Current_Question];
+
+            Console.Clear();
+            string title = $"Exam: {e.Exam_Name} | Question {Current_Question + 1}/{e.Questions_Of_Exam.Count}";
+            Arrow_Menu.Title_Me(title,6);
+            Console.WriteLine(q.Question_Text);
+            Console.WriteLine();
+
+            for (int i = 0; i < q.Answer.All_Choices.Length; i++){
+                string prefix = "  ";
+
+                if (i == Current_Choice){
+                    prefix = "> ";
+                }
+
+                if (User_Answers[Current_Question] == i){
+                    prefix += "# ";
+                }
+                else{
+                    prefix += "  ";
+                }
+
+                if (i == Current_Choice){
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine($"{prefix}{q.Answer.All_Choices[i]}");
+                    Console.ResetColor();
+                }
+                else{
+                    Console.WriteLine($"{prefix}{q.Answer.All_Choices[i]}");
+                }
+            }
+
+
+            ConsoleKey key = Console.ReadKey(true).Key;
+
+            if (key == ConsoleKey.UpArrow && Current_Choice > 0){
+                Current_Choice--;
+            }
+            else if (key == ConsoleKey.DownArrow && Current_Choice < q.Answer.All_Choices.Length - 1){
+                Current_Choice++;
+            }
+            else if (key == ConsoleKey.LeftArrow){
+                if (Current_Question > 0){
+                    Current_Question--;
+                    Current_Choice = User_Answers[Current_Question] == -1 ? 0 : User_Answers[Current_Question];
+                }
+            }
+            else if (key == ConsoleKey.RightArrow){
+                if (Current_Question < e.Questions_Of_Exam.Count - 1){
+                    Current_Question++;
+                    Current_Choice = User_Answers[Current_Question] == -1 ? 0 : User_Answers[Current_Question];
+                }
+            }
+            else if (key == ConsoleKey.Enter){
+                User_Answers[Current_Question] = Current_Choice;
+            }
+            else if (key == ConsoleKey.Escape){
+                Subject.Show_Subject_Exams(Subject_index);
+                return;
+            }
+
+            bool finished = true;
+            foreach (int a in User_Answers){
+                if (a == -1){
+                    finished = false;
+                    break;
+                }
+            }
+            if (finished){
+                break;
+            }
+        }
+
+        double score = 0;
+        int correctCount = 0;
+
+        for(int i = 0; i < e.Questions_Of_Exam.Count; i++){
+            Question q = e.Questions_Of_Exam[i];
+            int ansIndex = User_Answers[i];
+
+            if (ansIndex != -1){
+                string chosen = q.Answer.All_Choices[ansIndex];
+                if (chosen == q.Answer.Correct_Answer){
+                    score += q.Fmark;
+                    correctCount++;
+                }
+            }
+        }
+
+        Console.Clear();
+        Arrow_Menu.Title_Me("Exam Result",6);
+
+        if (e.Exam_Type != "practical"){
+            Console.WriteLine($"Score: {score} / {e.Total_Mark}");
+        }
+
+        Console.WriteLine($"Correct answers: {correctCount} / {e.Questions_Of_Exam.Count}");
+        Console.WriteLine();
+
+        for (int i = 0; i < e.Questions_Of_Exam.Count; i++){
+            Question q = e.Questions_Of_Exam[i];
+
+            Console.WriteLine($"Q{i + 1}");
+            Console.WriteLine(q.Question_Text);
+
+            for (int j = 0; j < q.Answer.All_Choices.Length; j++){
+                if (j == User_Answers[i]){
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{(char)('a' + j)}. {q.Answer.All_Choices[j]}");
+                    Console.ResetColor();
+                }
+                else{
+                    Console.WriteLine($"{(char)('a' + j)}. {q.Answer.All_Choices[j]}");
+                }
+            }
+
+            bool correct = false;
+            int ansIndex = User_Answers[i];
+
+            if (ansIndex != -1){
+                string chosen = q.Answer.All_Choices[ansIndex];
+                correct = chosen == q.Answer.Correct_Answer;
+            }
+
+            if (correct)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else
+                Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine($"Correct answer: {q.Answer.Correct_Answer}");
+            Console.ResetColor();
+
+            Console.WriteLine();
+        }
+
+        string historyEntry;
+
+        if (e.Exam_Type == "practical"){
+            historyEntry = $"Attended Exam {e.Exam_Name} of Subject {Subject.Subjects[Subject_index].Subject_Name}";
+        }
+        else{
+            historyEntry = $"Attended Exam {e.Exam_Name} of Subject {Subject.Subjects[Subject_index].Subject_Name} and got {score}/{e.Total_Mark}";
+        }
+
+        User.Current_User.history.Add(historyEntry);
+
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+
+        Subject.Show_Subject_Exams(Subject_index);
     }
+
+
     public static void Make_Edit_Exam(Exam e,int Subject_index){
         string title=$"Editing {e.Exam_Type} Exam {e.Exam_Name} > {e.Total_Mark}";
         string[]options=[
             "name",
             "Questions",
             $"status {e.Status_In_String}",
+            "remove exam",
             "back"
         ];
         int choice_Editing_Exam=Arrow_Menu.arrow_meth(title,options,6);
@@ -136,6 +443,10 @@ public class Exam{
                 
                 break;
             case 3:
+                Subject.Subjects[Subject_index].Subject_Exam.Remove(e);
+                Subject.Proffesor_Show_Subject_Exams(Subject_index);
+                break;
+            case 4:
                 Subject.Proffesor_Show_Subject_Exams(Subject_index);
                 break;
         }

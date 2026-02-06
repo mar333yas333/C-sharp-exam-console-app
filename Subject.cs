@@ -90,7 +90,7 @@ class Subject{
         else{
             if(User.Current_User.Type=="student"){
                 if(Subjects[Subject_index].Subject_Exam[choice_Exam].Avaliable){
-                    Exam.Attend_Exam(Subjects[Subject_index].Subject_Exam[choice_Exam]);
+                    Exam.Attend_Exam(Subjects[Subject_index].Subject_Exam[choice_Exam],Subject_index);
                 }
                 else if(!Subjects[Subject_index].Subject_Exam[choice_Exam].Avaliable){
                     Input_Handler.Print_Error("Exam not avaliable choose an avaliable one");
